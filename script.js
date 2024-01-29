@@ -13,6 +13,9 @@ const maghribJamat = document.getElementById("maghrib-jamat-tid");
 const ishaJamat = document.getElementById("isha-jamat-tid");
 const jummaJamat = document.getElementById("Jummah-jamat-tid");
 
+const nextPrayer = document.querySelector(".next-prayer");
+const countdown = document.getElementById("countDowntime");
+
 const bønnetider = {
   1: {
     Fajr: "6:45",
@@ -248,15 +251,13 @@ const bønnetider = {
   },
 };
 
-console.log(bønnetider[7].Maghrib);
-console.log(bønnetider[17].Maghrib);
-
 function updateClock() {
   let now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   let seconds = now.getSeconds();
-  let day = now.getDate();
+
+  let day = now.getDate(); // endre for å vise eksempel dag
 
   // legg til null foran enkeltstående tall
   hours = hours < 10 ? "0" + hours : hours;
@@ -339,6 +340,7 @@ function updateJamatTime() {
   });
 
   console.log(jamat);
+  getNextPrayerTime(jamat);
 
   fajrJamat.textContent = jamat[0];
   duhurJamat.textContent = jamat[1];
@@ -350,10 +352,38 @@ function updateJamatTime() {
 
 updateJamatTime();
 
+////////////////////////////////////////////////////////////////////////////
+
 function getNextPrayerTime(prayerTimes) {
   const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+  const currentMinutes = currentTime.getMinutes();
+  const currentTimeStamp = currentHour * 60 + currentMinutes;
 
-  console.log(currentTime);
+  let nextPrayerIndex = -1;
+  let timeDiff;
+
+  for (let i = 0; i < prayerTimes.length; i++) {
+    const [prayerHours, prayerMinutes] = prayerTimes[i].split(":");
+    const prayerTimestamp =
+      parseInt(prayerHours) * 60 + parseInt(prayerMinutes);
+
+    if (prayerTimestamp > currentTimeStamp) {
+      timeDiff = prayerTimestamp - currentTimeStamp;
+      nextPrayerIndex = i;
+      break;
+    }
+  }
+
+  if (nextPrayerIndex !== -1) {
+    const nextPrayerTime = prayerTimes[nextPrayerIndex];
+
+    countdown.textContent = `Neste bønn er kl. ${nextPrayerTime}`;
+  } else {
+    countdown.textContent = "Kom tilbake imorgen, in sha Allah 😃";
+  }
 }
 
-getNextPrayerTime();
+// Example usage: Get countdown to the next prayer time
+// const prayerTimes = ["5:35", "12:45", "11:53", "3:55", "11:51", "00:00"];
+// getNextPrayerTime(prayerTimes);
