@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <body class="">
+    <div
+      class="xl:container p-6 mx-auto md:flex md:flex-row md:justify-center md:h-screen"
+    >
+      <!-- klokka -->
+      <section class="clock flex flex-col">
+        <h1 class="text-2xl text-center p-10 md:text-4xl md:pt-28">
+          Velkommen Til Hamar Moskee
+        </h1>
+
+        <!-- Klokka nå-->
+        <header class="text-center bg-white md:h-2/6 p-10">
+          <h1 class="text-xl">Klokken er:</h1>
+          <p id="time" class="text-4xl text-green-500">00:00:00</p>
+        </header>
+
+        <!-- neste bønn -->
+        <div class="text-center my-8 p-6 bg-orange-100 md:h-2/6">
+          <h2 class="text-xl">Neste Bønn:</h2>
+          <p id="countDowntime" class="text-4xl text-red-500">00:00:00</p>
+        </div>
+      </section>
+
+      <!-- bønne tider-->
+      <section
+        class="flex flex-row justify-between p-6 md:pt-12 bg-white md:my-8 md:flex-1 md:h-screen"
+      >
+        <!-- bønn-navn-->
+        <h2 class="md:absolute md:top-20">Start tid</h2>
+        <div class="bønn-navn md:flex md:flex-col md:gap-10">
+          <p class="text-xl md:text-2xl my-3 text-green-400">Fajr</p>
+          <p class="text-xl md:text-2xl my-3">☀️</p>
+          <p class="text-xl md:text-2xl my-3 text-yellow-500">Duhur</p>
+          <p class="text-xl md:text-2xl my-3 text-blue-700">Asr</p>
+          <p class="text-xl md:text-2xl my-3 text-red-700">Maghrib</p>
+          <p class="text-xl md:text-2xl my-3 text-purple-700">Isha</p>
+          <p class="text-xl md:text-2xl my-3">Jummah</p>
+        </div>
+        <!-- bønn-tider -->
+        <div class="bønn-tider relative md:flex md:flex-col md:gap-10">
+          <p
+            class="time-value md:text-2xl text-xl my-3 text-green-400"
+            id="fajr-tid"
+          >
+            00:00
+          </p>
+          <p class="time-value md:text-2xl text-xl my-3" id="soloppgang-tid">
+            00:00
+          </p>
+          <p
+            class="time-value md:text-2xl text-xl my-3 text-yellow-500"
+            id="duhur-tid"
+          >
+            00:00
+          </p>
+          <p
+            class="time-value md:text-2xl text-xl my-3 text-blue-700"
+            id="asr-tid"
+          >
+            00:00
+          </p>
+          <p
+            class="time-value md:text-2xl text-xl my-3 text-red-700"
+            id="maghrib-tid"
+          >
+            00:00
+          </p>
+          <p
+            class="time-value md:text-2xl text-xl my-3 text-purple-700"
+            id="isha-tid"
+          >
+            00:00
+          </p>
+          <p class="time-value md:text-2xl text-xl my-3">🕌</p>
+        </div>
+      </section>
+
+      <!-- jamat & arabic-->
+      <section
+        class="flex flex-row justify-between bg-orange-100 md:my-8 p-6 md:pt-12 md:h-screen md:flex-1"
+      >
+        <h2 class="md:absolute md:top-20">jamaat</h2>
+        <div class="jamaat md:flex md:flex-col md:gap-10">
+          <p class="text-xl md:text-2xl my-3" id="fajr-jamat-tid">00:00</p>
+          <p class="text-xl md:text-2xl my-3" id="soloppgang-tid">''</p>
+          <p class="text-xl md:text-2xl my-3" id="duhur-jamat-tid">00:00</p>
+          <p class="text-xl md:text-2xl my-3" id="Asr-jamat-tid">00:00</p>
+          <p class="text-xl md:text-2xl my-3" id="maghrib-jamat-tid">🌙</p>
+          <p class="text-xl md:text-2xl my-3" id="isha-jamat-tid">00:00</p>
+          <p class="text-xl md:text-2xl my-3" id="Jummah-jamat-tid">00:00</p>
+        </div>
+        <div class="arabic md:flex md:flex-col md:gap-10">
+          <p class="text-xl md:text-2xl my-3">الفجر</p>
+          <p class="text-xl md:text-2xl my-3">طلوع الشمس</p>
+          <p class="text-xl md:text-2xl my-3">الظهر</p>
+          <p class="text-xl md:text-2xl my-3">العصر</p>
+          <p class="text-xl md:text-2xl my-3">المغرب</p>
+          <p class="text-xl md:text-2xl my-3">العشاء</p>
+          <p class="text-xl md:text-2xl my-3">الجمعة</p>
+        </div>
+      </section>
+
+      <footer
+        class="bg-yellow-200 text-center md:absolute md:left-20 md:bottom-20"
+      >
+        <a class="" href="https://www.facebook.com/Moskehamar "
+          >Besøk vår facebook side for mer informasjon - Moskehamar
+          <svg
+            class="w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"
+            />
+          </svg>
+        </a>
+      </footer>
+    </div>
+
+    <script src="script2.js"></script>
+  </body>
+</html>
+
+<!--
+<div
+class="container mx-auto border-black flex justify-center items-center flex-row"
+>
+<div class="big-left-box h-full w-3/5 flex flex-col justify-evenly">
+  <div class="box-1 bg-white w-2/3 h-36 p-5">
+    <p class="klokketekst text-2xl">Klokken er:</p>
+    <p class="text-5xl text-green-500" id="time">00: 00 : 00</p>
+  </div>
+  <div class="box-2 bg-white h-44 p-5 w-2/3">
+    <p class="klokketekst text-4xl"></p>
+    <p class="text-5xl text-center text-red-500" id="countDowntime">
+      1t: 00m : 00s
+    </p>
+  </div>
+</div>
+
+<div
+  class="big-right-box w-full h-full flex flex-row justify-between bg-white p-6"
+>
+  <div class="prayer-text">
+    <span>Start Tid </span> <span>Jamat</span>
+  </div>
+  <div class="prayer-Names flex flex-col my-5 items-stretch">
+    <div class="text-3xl p-2 p-3 my-12 text-green-400">Fajr</div>
+    <div class="text-3xl p-2 my-12">Soloppgang</div>
+    <div class="text-3xl p-2 my-12 text-yellow-300">Duhur</div>
+    <div class="text-3xl p-2 my-12 text-orange-500">Asr</div>
+    <div class="text-3xl p-2 text-red-600 my-12">Maghrib</div>
+    <div class="text-3xl text-purple-400 p-2 my-12">Isha</div>
+    <div class="text-3xl p-2 text-blue-300 my-12">Jummah</div>
+  </div>
+  <div class="prayer-times flex flex-col my-5 items-stretch">
+    <div class="text-3xl p-2 my-12 bg-green-400 time-value" id="fajr-tid">
+      00:00
+    </div>
+    <div class="text-3xl p-2 my-12" id="soloppgang-tid">00:00</div>
+    <div
+      class="text-3xl p-2 my-12 bg-yellow-300 time-value"
+      id="duhur-tid"
+    >
+      00:00
+    </div>
+    <div class="text-3xl p-2 my-12 bg-orange-500 time-value" id="asr-tid">
+      00:00
+    </div>
+    <div
+      class="text-3xl p-2 bg-red-600 my-12 text-white time-value"
+      id="maghrib-tid"
+    >
+      00:00
+    </div>
+    <div
+      class="text-3xl p-2 bg-purple-400 my-12 time-value"
+      id="isha-tid"
+    >
+      00:00
+    </div>
+  </div>
+  <div class="jamat-times flex flex-col my-5 items-stretch">
+    <div
+      class="text-3xl p-2 my-12 text-green-400 time-value"
+      id="fajr-jamat-tid"
+    >
+      55:66
+    </div>
+    <div class="text-3xl p-2 my-12" id="solnedgang-jamat-tid">' '</div>
+    <div class="text-3xl p-2 my-12 text-yellow-300" id="duhur-jamat-tid">
+      55:66
+    </div>
+    <div class="text-3xl p-2 my-12 text-orange-500" id="Asr-jamat-tid">
+      55:66
+    </div>
+    <div class="text-3xl p-2 my-12" id="maghrib-jamat-tid">' '</div>
+    <div class="text-3xl p-2 text-purple-400 my-12" id="isha-jamat-tid">
+      55:66
+    </div>
+    <div
+      class="text-3xl p-2 text-white bg-black my-12"
+      id="Jummah-jamat-tid"
+    >
+      55:66
+    </div>
+  </div>
+  <div class="arabic-names flex flex-col my-5 items-stretch">
+    <div class="text-3xl p-2 my-12 text-green-400" id="fajr-arabic-name">
+      الفجر
+    </div>
+    <div class="text-3xl p-2 my-12" id="soloppgang">طلوع الشمس</div>
+    <div
+      class="text-3xl p-2 my-12 text-yellow-300"
+      id="duhur-arabic-name"
+    >
+      الظهر
+    </div>
+    <div class="text-3xl p-2 my-12 text-orange-500" id="Asr-arabic-name">
+      العصر
+    </div>
+    <div
+      class="text-3xl p-2 my-12 text-red-600 text-white"
+      id="maghrib-arabic-name"
+    >
+      المغرب
+    </div>
+    <div class="text-3xl p-2 text-purple-400 my-12" id="isha-arabic-name">
+      العشاء
+    </div>
+    <div class="text-3xl p-2 text-blue-300 my-12" id="Jummah-arabic-name">
+      الجمعة
+    </div>
+  </div>
+</div>
+</div>
+<footer class="container mx-auto w-full text-3xl absolute bottom-8">
+Vipps til for Hamar Moskee #877778
+</footer>
+
+<script src="script.js"></script>  -->
